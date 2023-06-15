@@ -4,10 +4,12 @@
     --primary-button: #e4a0d6;
     --secondary-button: #08181c;
     --accent: #b4ce50;
+    --white: #fff;
+    --black: #000;
 }
 
 
 
-.body{
+/* .body{
     background-color: var(--background);
-}
+} */

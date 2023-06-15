@@ -16,9 +16,15 @@ import Stack from '@mui/material/Stack';
 import { Link, useNavigate } from 'react-router-dom';
 import SignIn from '../pages/Signin';
 import SignUp from '../pages/Signup';
+import { colors } from '@mui/material';
+import { withTheme } from '@emotion/react';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+const typostyle = {
+  
+};
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -39,27 +45,27 @@ function Navbar() {
     setAnchorElUser(null);
   };
 
- const navigate = useNavigate();
- function signinpath() {
-   navigate('/signin');
- }
+  const navigate = useNavigate();
+
+  function signinpath() {
+    navigate('/signin');
+  }
+
   function signuppath() {
     navigate('/signup');
   }
 
-
   return (
-    <AppBar position="static" sx={{
-      bgcolor: 'var(--bacground)',
-    }}>
+    <AppBar position="static" sx={{ bgcolor: 'var(--background)' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1  }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
             href="/"
+            style={typostyle}
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -81,8 +87,9 @@ function Navbar() {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="var(--text)"
+              className='menu-icon'
             >
-              <MenuIcon />
+              <MenuIcon style={{ bgcolor:'var(--white) !important'}} />
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -109,6 +116,7 @@ function Navbar() {
               ))}
             </Menu>
           </Box>
+
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
@@ -124,10 +132,12 @@ function Navbar() {
               letterSpacing: '.3rem',
               color: 'var(--text)',
               textDecoration: 'none',
+              '&:hover': { bgcolor: 'var(--accent)' },
             }}
           >
             LOGO
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -141,34 +151,37 @@ function Navbar() {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            {/* <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip> */}
-            
             <Stack spacing={2} direction="row">
-        
-                <Button sx={{
+              <Button
+                sx={{
                   bgcolor: 'var(--primary-button)',
                   color: '#000000',
-                  ":hover": {bgcolor: 'var(--secondary-button)', color: 'var(--text)'},
-                }} variant="contained" onClick={signinpath}>Sign In</Button>
+                  ':hover': {
+                    bgcolor: 'var(--secondary-button)',
+                    color: 'var(--text)',
+                  },
+                }}
+                variant="contained"
+                onClick={signinpath}
+              >
+                Sign In
+              </Button>
 
-    
-              
-
-
-              
-              <Button sx={{
-                bgcolor: 'var(--secondary-button)',
-                ":hover": {bgcolor: 'var(--primary-button)' , color: '#000000'},
-                color: 'var(--text)',
-              }} variant="outlined" onClick={signuppath}>Sign Up</Button>
-
-
+              <Button
+                sx={{
+                  bgcolor: 'var(--secondary-button)',
+                  ':hover': {
+                    bgcolor: 'var(--primary-button)',
+                    color: '#000000',
+                  },
+                  color: 'var(--text)',
+                }}
+                variant="outlined"
+                onClick={signuppath}
+              >
+                Sign Up
+              </Button>
             </Stack>
-
 
             <Menu
               sx={{ mt: '45px', color: 'var(--text)', bgcolor: 'var(--background)' }}
@@ -187,10 +200,14 @@ function Navbar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem sx={{
-                  bgcolor: 'var(--background)',
-                  color: 'var(--text)',
-                }} key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem
+                  sx={{
+                    bgcolor: 'var(--background)',
+                    color: 'var(--text)',
+                  }}
+                  key={setting}
+                  onClick={handleCloseUserMenu}
+                >
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
@@ -201,4 +218,5 @@ function Navbar() {
     </AppBar>
   );
 }
+
 export default Navbar;

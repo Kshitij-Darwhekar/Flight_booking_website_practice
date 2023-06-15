@@ -53,9 +53,12 @@ export default function SignIn() {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+            {/* <LockOutlinedIcon /> */}
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography sx={{
+            color: 'var(--text)',
+          }} 
+          component="h1" variant="h5">
             Sign in
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -80,6 +83,9 @@ export default function SignIn() {
               autoComplete="current-password"
             />
             <FormControlLabel
+              sx={{
+                color: 'var(--text)',
+              }}
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
@@ -87,7 +93,7 @@ export default function SignIn() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2 , bgcolor: 'var(--primary-button)', color:'black', ":hover": {backgroundColor: 'var(--secondary-button)' , color: 'var(--text)'} }}
             >
               Sign In
             </Button>

@@ -12,6 +12,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import '../styles/SignUp.css'
+
+
+
 
 function Copyright(props) {
   return (
@@ -28,7 +32,19 @@ function Copyright(props) {
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
-const defaultTheme = createTheme();
+const defaultTheme = createTheme(
+  // components: {
+  //   MuiInputLabel :{
+  //     styleOverrides: {
+  //       root: {
+  //         color: 'var(--text)',
+  //         borderColor: 'var(--text)',
+          
+  //       },
+  //     },
+  //   },
+  // }
+);
 
 export default function SignUp() {
   const handleSubmit = (event) => {
@@ -53,16 +69,24 @@ export default function SignUp() {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+            {/* <LockOutlinedIcon /> */}
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography sx={{
+            color: 'var(--text)',
+          }} component="h1" variant="h5">
             Sign up
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+            <Grid sx={{
+                    color: 'var(--text)',
+                }} 
+                container spacing={2}>
+              <Grid sx={{
+                    // color: 'var(--text)',
+                }}
+              item xs={12} sm={6}>
                 <TextField
-                  autoComplete="given-name"
+                  // autoComplete="given-name"
                   name="firstName"
                   required
                   fullWidth
@@ -71,28 +95,43 @@ export default function SignUp() {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid 
+              item xs={12} sm={6}>
                 <TextField
+                sx={{
+                    color: 'var(--text)',
+                    borderColor: 'var(--text)',
+                }}
                   required
                   fullWidth
                   id="lastName"
                   label="Last Name"
                   name="lastName"
-                  autoComplete="family-name"
+                  // autoComplete="family-name"
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
-                  autoComplete="email"
-                />
+               
+                    <TextField
+                    // sx={{
+                    //     border: '1px solid var(--accent) !important',
+                    //     color: 'var(--text)',
+                    // }}
+                    required
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    // autoComplete="email"
+                    />
+        
+                
               </Grid>
               <Grid item xs={12}>
-                <TextField
+                <TextField 
+                // sx={{
+                //     borderColor: 'var(--accent) !important',
+                // }}
                   required
                   fullWidth
                   name="password"
@@ -113,7 +152,7 @@ export default function SignUp() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2 , bgcolor: 'var(--primary-button)', color:'black', ":hover": {backgroundColor: 'var(--secondary-button)' , color: 'var(--text)'} }}
             >
               Sign Up
             </Button>

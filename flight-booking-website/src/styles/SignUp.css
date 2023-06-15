@@ -1,0 +1,13 @@
+body{
+    background-color: var(--background) !important;
+}
+
+
+input{
+    color: var(--text) !important;
+    background-color: var(--background) !important;
+  
+    /* label{
+        color: var(--text) !important;
+    } */
+}

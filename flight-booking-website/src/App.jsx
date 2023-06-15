@@ -4,6 +4,8 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import SignIn from './pages/Signin'
 import SignUp from './pages/Signup'
+import Home from './pages/Home'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,11 +17,11 @@ function App() {
         <Routes>
           <Route path='/signin' element={<SignIn/>} />
           <Route path='/signup' element={<SignUp/>} />
-          {/* <Route path='/' element={Home} />
-          <Route path='/flight-search' element={FlightSearch} />
+          <Route path='/' element={<Home/> } />
+          {/* <Route path='/flight-search' element={FlightSearch} />
           <Route path='/flight-details' element={FlightDetails} />
           <Route path='/flight-booking' element={FlightBooking} />
-          <Route path='/flight-confirmation' element={FlightConfirmation} /> */}
+          <Route path='/flight-confirmation' element={FlightConfirmation} /> */} 
         </Routes>
       <Footer />
     </Router>

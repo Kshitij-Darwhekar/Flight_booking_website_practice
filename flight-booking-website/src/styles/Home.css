@@ -1,0 +1,38 @@
+:root{
+    --img : url('flight-booking-website/src/assets/images/Flightback.jpg')
+}
+
+.InputBase input , .InputBase .menuitem{    
+    background-color: var(--white) !important;
+    color: var(--black) !important;
+    
+}
+
+
+.InputBase input::placeholder{
+    color: var(--black) !important;
+    fill: black !important;
+}   
+
+.menu-icon svg{
+    fill: var(--text) !important;
+    
+}
+label{
+    display: block !important;
+    /* margin-bottom: 5px !important; */
+    color: var(--black) !important;
+}
+.root{
+    background-color: var(--background) !important;
+}
+.MuiPaper-elevation1{
+    background-color: var(--text) !important;
+    /* background-image: var(--img) !important;
+    background-size: cover !important; */
+
+}
+.MuiSelect-select.MuiSelect-select{
+    background-color: var(--white) !important;
+    color: var(--black) !important;
+}
