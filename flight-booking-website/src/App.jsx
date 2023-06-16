@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import SignIn from './pages/Signin'
 import SignUp from './pages/Signup'
 import Home from './pages/Home'
+import Flights from './pages/Flights'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path='/signin' element={<SignIn/>} />
           <Route path='/signup' element={<SignUp/>} />
           <Route path='/' element={<Home/> } />
+          <Route path='/flights' element={<Flights/>} />
           {/* <Route path='/flight-search' element={FlightSearch} />
           <Route path='/flight-details' element={FlightDetails} />
           <Route path='/flight-booking' element={FlightBooking} />

@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import SkyscannerButton from '../helpers/SkyscannerButtons';
 import { makeStyles } from '@material-ui/core/styles';
 import { TextField, Button, Grid, Paper, IconButton, Typography, MenuItem } from '@material-ui/core';
 import { Search as SearchIcon, SwapHoriz as SwapIcon } from '@material-ui/icons';
@@ -6,25 +8,33 @@ import '../styles/Home.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1 ,
     padding: theme.spacing(2),
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    flexDirection: 'column',
+    gap: '2rem',
     
   },
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+    display: 'flex',
+    flexGrow: 1,
   },
   iconButton: {
     margin: theme.spacing(1),
   },
   InputBase: {
-    backgroundColor: 'var(--accent) !important',
+    backgroundColor: 'var(--accent)',
     color: 'black',
     },
+
+  title: {
+    color: 'var(--accent)',
+  }
 
 }));
 
@@ -51,14 +61,28 @@ const sclasses =[
   }
 ]
 
+
+
+
+
 const Home = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+
+  function flights() {
+    navigate('/flights');
+  }
+
 
   return (
+
     <div className={classes.root}>
+      <Typography variant="h4" className={classes.title}>
+        Search Flights with Skyscanner
+      </Typography>
       <Paper className={classes.paper}>
         <Grid container spacing={2} alignItems="center">
-          <Grid item xs={12} sm={3}>
+          <Grid item xs={12} sm={2}>
             <TextField label="From" fullWidth className='InputBase' variant='filled' />
           </Grid>
           <Grid item xs={12} sm={1}>
@@ -66,21 +90,23 @@ const Home = () => {
               <SwapIcon />
             </IconButton>
           </Grid>
-          <Grid item xs={12} sm={3}>
+          <Grid item xs={12} sm={2}>
             <TextField label="To" fullWidth className='InputBase' variant='filled'/>
           </Grid>
           <Grid item xs={12} sm={2}>
             <TextField  label="Depart" type="date" fullWidth className='InputBase' variant='filled'/>
           </Grid>
           <Grid item xs={12} sm={2}>
-            <TextField label="Return" type="date" fullWidth className='InputBase' variant='filled'/>
+            <TextField label="Return" type="date" fullWidth className='InputBase'  variant='filled'/>
           </Grid>
           <Grid item xs={12} sm={1}>
-            <TextField label="Travellers" type="number" fullWidth className='InputBase' variant='filled'/>
+            <TextField label=" No. Of Travellers"  fullWidth className='InputBase' variant='filled' select>
+            <SkyscannerButton />
+            </TextField>
           </Grid>
-          <Grid item xs={12} sm={1}>
+          <Grid item xs={12} sm={2}>
 
-            <TextField label="Class" fullWidth className='InputBase' variant='filled' select>
+            <TextField label="Class" fullWidth className='InputBase' variant='filled'  select>
               {sclasses.map((option) => (
                 <MenuItem className='menuitem' key={option.id} value={option.name}>
                   {option.label}
@@ -92,14 +118,7 @@ const Home = () => {
           </Grid>
          
           <Grid item xs={12} sm={12}>
-            <Button style={{
-              backgroundColor: 'var(--primary-button)',
-              color: '#000000',
-               '&:hover': {
-                backgroundColor: 'var(--secondary-button)',
-                color: 'var(--text)',
-              },
-            }} variant="contained" color="primary" startIcon={<SearchIcon />}>
+            <Button className='search_button' variant="contained" color="primary" startIcon={<SearchIcon />} onClick={flights}>
               Search
             </Button>
           </Grid>

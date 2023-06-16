@@ -14,8 +14,6 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import Stack from '@mui/material/Stack';
 import { Link, useNavigate } from 'react-router-dom';
-import SignIn from '../pages/Signin';
-import SignUp from '../pages/Signup';
 import { colors } from '@mui/material';
 import { withTheme } from '@emotion/react';
 
