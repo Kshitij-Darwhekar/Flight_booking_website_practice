@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 :root{
     --text: #d7eef4;
     --background: #030a0c;
@@ -7,7 +12,6 @@
     --white: #fff;
     --black: #000;
 }
-
 
 
 /* .body{

@@ -81,7 +81,7 @@ const Home = () => {
         Search Flights with Skyscanner
       </Typography>
       <Paper className={classes.paper}>
-        <Grid container spacing={2} alignItems="center">
+        <Grid container spacing={1} alignItems="center">
           <Grid item xs={12} sm={2}>
             <TextField label="From" fullWidth className='InputBase' variant='filled' />
           </Grid>
@@ -94,13 +94,13 @@ const Home = () => {
             <TextField label="To" fullWidth className='InputBase' variant='filled'/>
           </Grid>
           <Grid item xs={12} sm={2}>
-            <TextField  label="Depart" type="date" fullWidth className='InputBase' variant='filled'/>
+            <TextField  label="Depart" type="date" fullWidth className='InputBase' variant='filled' InputLabelProps={{ style : {top : '-0.6rem'} }} />
           </Grid>
           <Grid item xs={12} sm={2}>
-            <TextField label="Return" type="date" fullWidth className='InputBase'  variant='filled'/>
+            <TextField label="Return" type="date" fullWidth className='InputBase'  variant='filled' InputLabelProps={{ style : {top : '-0.6rem'} }} />
           </Grid>
           <Grid item xs={12} sm={1}>
-            <TextField label=" No. Of Travellers"  fullWidth className='InputBase' variant='filled' select>
+            <TextField label="Travellers"  fullWidth className='InputBase' variant='filled' select InputLabelProps={{style:{ }}}>
             <SkyscannerButton />
             </TextField>
           </Grid>
